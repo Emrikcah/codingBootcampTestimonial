@@ -1,0 +1,164 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.image,
+.text {
+  max-width: $mobile;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+#testimonial {
+  max-width: 375px;
+  min-height: 750px;
+  padding-top: 35px;
+  background-position: bottom left 0px, 80% 8%;
+  background-image: url("../images/pattern-curve.svg"), url("../images/pattern-bg.svg");
+  background-size: 350px;
+  background-repeat: no-repeat;
+  box-shadow: $outer-box-shadow;
+
+  /*************************** Media Query************************/
+  @media (min-width: 900px) {
+    background-position: bottom left 0px, 80% 20%;
+    background-size: 600px;
+    max-width: $desktop;
+  }
+} //end testimonial
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+} //end container
+
+.row {
+  padding-top: 30px;
+
+  .image {
+    width: 83%;
+    position: relative;
+    box-shadow: $box-shadow;
+
+    .buttons {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-around;
+      width: 85px;
+      padding: 1.5rem 0.5rem;
+      border-radius: 3rem;
+      background: #fff;
+      img {
+        width: 10px;
+      }
+    } //end buttons
+  } //end image
+  .text {
+    background-image: url("../images/pattern-quotes.svg");
+    background-repeat: no-repeat;
+    background-size: 80px;
+    background-position: top;
+    padding: 40px 10px 0px;
+    margin-top: 40px;
+    line-height: 1.5;
+    text-align: center;
+    color: $dark-blue;
+    font-weight: $light;
+    font-size: 1.7rem;
+
+    .text--name {
+      margin: 20px 0 5px;
+      font-weight: $bold;
+    }
+
+    .text--jobtitle {
+      font-weight: $medium;
+      color: $grayish-blue;
+    }
+  } //end text
+
+  /******************Media Query*************************/
+  @media (min-width: 900px) {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin-top: 20px;
+
+    .image,
+    .text {
+      display: grid;
+      grid-row: 1/2;
+    }
+
+    .image {
+      grid-column: 5 / 8;
+      order: 2;
+      max-width: 100%;
+      width: 535px;
+
+      .buttons{
+        left: 20%;
+      }
+    }
+
+    .text {
+      grid-column: 1/ 6;
+      align-self: center;
+      order: 1;
+      text-align: left;
+      font-size: 3rem;
+      margin-top: 0;
+      max-width: 100%;
+      width: 635px;
+      height: 350px;
+      line-height: 1.3;
+      z-index: 2;
+      background-size: 100px;
+      background-position: 20% 14%;
+
+      .text--quote{
+        padding-top: 50px;
+      }
+
+      .text--inner {
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+
+        .text--name {
+          margin: 0 20px 0 0;
+        }
+      }
+    }
+  } //end media query
+} //end row
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
