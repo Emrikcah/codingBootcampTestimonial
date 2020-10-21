@@ -50,6 +50,7 @@ nextBtn.addEventListener("click", function () {
 //move to the pervious person in the array
 prevBtn.addEventListener("click", function () {
   currentPerson--;
+  //if currentPerson is less than 0 get the last person in the array
   if (currentPerson < 0) {
     currentPerson = people.length - 1;
   }
